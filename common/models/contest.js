@@ -44,7 +44,46 @@ module.exports = function(Contest) {
                 }
             }
         }); 
-	}
+    }
+    
+    Contest.getDescription = async (req) =>{
+        let [err, contest] = await to(Contest.findOne({where: {constestId: req.constestId}}));
+        
+        return {
+            "metadata": {
+              "app_name": "Contest",
+              "app_id": 123456,
+              "title": "BIT",
+              "submit_button": {
+                "label": "Go to contest",
+                "background_color": "#6666ff", 
+                "cta": "request",
+                "url": "http://bitzero.herokuapp.com/api/Users/"+req.userId
+              },
+              "elements": [
+                {
+                    "type": "text",
+                    "style": "heading",
+                    "content": contest.contestDes
+            
+                },
+              ]
+            }
+        };
+    }
+
+
+	Contest.remoteMethod(
+		'getDescription',{ 
+            http: {path: '/getDescription', verb: 'get'},
+            accepts: [
+                {arg: 'req', type: 'object', 'http': {source: 'req'}},
+            ],
+            returns: [
+                {arg: 'data', type:'object'}]
+        }
+    )
+
 
 	Contest.remoteMethod(
 		'createContest',{ 
