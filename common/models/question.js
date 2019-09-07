@@ -80,6 +80,10 @@ function cuQuestionForm(submitURL){
     return elements
 }
 
+function questionToResponse(question) {
+
+}
+
 module.exports = function(Question) {
     Question.playerGetQuestion = async function(userContestId){
         let questionForm = vjson.createJson()
