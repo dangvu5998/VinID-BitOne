@@ -115,7 +115,7 @@ module.exports = function(Question) {
         let questionForm = vjson.createJson()
         let [err, listQuestion] = await to(Question.find())
         let question
-        question.type = "radio"
+        question.type = "checkbox"
         question.display_type = "inline"
         question.name = "Pick questions"
         question.required = "true"
