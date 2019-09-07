@@ -3,13 +3,13 @@ let to = require('await-to-js').to;
 module.exports = function(User) {
 
     User.createUser = async function(req) {
-        let userData = {
-            userId:req.userId,
-            fullName:req.fullName,
-            gender:req.gender,
-            age:req.age
-        }
-        User.upsert(userData)
+        // let userData = {
+        //     userId:req.userId,
+        //     fullName:req.fullName,
+        //     gender:req.gender,
+        //     age:req.age
+        // }
+        // User.upsert(userData)
         //let context = vinJson.createJson();
         //return "1";
         return [{
