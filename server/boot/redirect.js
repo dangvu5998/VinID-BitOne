@@ -75,7 +75,7 @@ module.exports = function (app) {
                     },
                     ]
                 }
-            }
+              }
             });
         else if ( selection.value == 2) 
             return res.json({
@@ -136,4 +136,3 @@ module.exports = function (app) {
         }
     }
 
-}
