@@ -24,7 +24,7 @@ module.exports = function(User) {
                   "cta": "request",
                   "url": ""
                 },
-                "reset_button": {
+                "reset_button":  {
                   "label": "Reset Question",
                   "background_color": "#6666ff", 
                   "cta": "request",
