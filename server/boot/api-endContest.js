@@ -6,11 +6,6 @@ module.exports = function (app) {
                     "app_name": "Contest",
                     "app_id": 123456,
                     "title": "Kết thúc cuộc thi",
-                    "text": {
-                        "type": "text",
-                        "style": "heading",
-                        "content": "Chúc mừng bạn đã hoàn thành contest, ấn OK để xem ranking"
-                    },
                     "submit_button": {
                         "label": "Ok",
                         "background_color": "#6666ff", //Background color of submit button
@@ -18,6 +13,11 @@ module.exports = function (app) {
                         "url": "http://bitone.herokuapp.com/api-endContest"
                     },
                     "elements": [
+                        {
+                            "type": "text",
+                            "style": "heading",
+                            "content": "Chúc mừng bạn đã hoàn thành contest, ấn OK để xem ranking"
+                        },
                         {
                             "type": "input",
                         }
