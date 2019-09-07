@@ -6,21 +6,20 @@ module.exports = function (app) {
                     "app_name": "Contest",
                     "app_id": 123456,
                     "title": "Kết thúc cuộc thi",
-                    "text_view": {
-                        "type": "text",
-                        "style": "heading",
-                        "content": "Chúc mừng bạn đã hoàn thành contest, ấn OK để xem ranking"
-                    },
-                    "ok_button": {
+                    "submit_button": {
                         "label": "Ok",
                         "background_color": "#6666ff", //Background color of submit button
                         "cta": "request",
-                        "url": "http://bitone.herokuapp.com/api-endContest"
+                        "url": "http://bitone.herokuapp.com/api-ranking"
                     },
                     "elements": [
                         {
+                            "type": "text",
+                            "style": "paragraph",
+                            "content": "Chúc mừng bạn đã hoàn thành contest! \n Ấn OK để xem ranking"
+                        },
+                        {
                             "type": "input",
-
                         }
                     ]
                 }
