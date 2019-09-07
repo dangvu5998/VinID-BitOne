@@ -18,7 +18,7 @@ module.exports = {
         return {
             "metadata": {
                 "app_name": "bitOne",
-                "title": "bitOne - Tự định nghĩa cách bạn mua hàng",
+                "title": "bitOne",
                 "submit_button": {
                     "label": "Gửi thông tin",
                     "background_color": "#6666ff",

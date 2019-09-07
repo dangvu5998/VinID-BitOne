@@ -32,7 +32,7 @@ module.exports = function(Contest) {
                     	"label": "Reset",
                     	"background_color": "#6666ff", 
                         "cta": "request",
-                        "url": ""
+                        "url": "http://bitone.herokuapp.com//createContest"
                     },
                     "elements": [
                      {

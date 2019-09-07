@@ -19,6 +19,10 @@
     "trueAnswer": {
       "type": "number",
       "required": true
+    },
+    "userId": {
+      "type": "string",
+      "required": false
     }
   },
   "validations": [],

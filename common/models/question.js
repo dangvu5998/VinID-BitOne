@@ -106,9 +106,91 @@ module.exports = function(Question) {
         return questionForm
     }
 
-    Question.createQuestion = async (req, contestId, description, answers) => {
+    Question.createQuestion = async (req, res, content, answerList, trueAnswer) => {
         console.log(req.userId);
-        return [{msg:'ok'}];
+        let answers = answerList.split(';'); 
+        let QuestionData = {
+            contest: content,
+            answerList: answers,
+            trueAnswer: trueAnswer
+        }
+        Question.upsert(QuestionData)
+        return res.json({
+                "data": {
+                "metadata": {
+                    "app_name": "Contest",
+                    "app_id": 123456,
+                    "title": "Tao",
+                    "text_view": {
+                        "type": "text",
+                        "style": "heading",
+                        "content": "Hãy tao contest"
+                    },
+                    "submit_button": {
+                        "label": "Tao Contest",
+                        "background_color": "#6666ff", 
+                        "cta": "request",
+                        "url": "http://bitone.herokuapp.com/createContest"
+                    },
+                     "reset_button": {
+                        "label": "Reset",
+                        "background_color": "#6666ff", 
+                        "cta": "request",
+                        "url": ""
+                    },
+                    "elements": [
+                    {
+                        "type":"input",
+                        "name": "contestName",
+                        "input_type":"text",
+                        "label":"Contest Name",
+                        "required": true,
+                        "placeholder": "Contest Name"
+                    },
+                    {
+                        "type":"input",
+                        "input_type":"text",
+                        "name": "contestDes",
+                        "label":"Contest Description",
+                        "required": false,
+                        "placeholder": "Contest Description"
+                    },
+                     {
+                        "type":"input",
+                        "input_type":"textarea",
+                        "name": "Question",
+                        "label":"Question",
+                        "required": true,
+                        "placeholder": "qs1;qs2;qs3;..."
+                    },
+                    {
+                        "type":"input",
+                        "input_type":"textarea",
+                        "name": "Score",
+                        "label":"Score Submit",
+                        "required": true,
+                        "placeholder": "score_qs1;score_qs2;score_qs3;..."
+                    },
+                    {
+                        "type":"input",
+                        "input_type":"text",
+                        "name": "TimeStart",
+                        "label":"Time Start",
+                        "required": true,
+                        "placeholder": "hh:mm dd:mm:yy"
+                    },
+                    {
+                        "type":"input",
+                        "input_type":"text",
+                        "name": "TimeOut",
+                        "label":"Duration",
+                        "required": true,
+                        "placeholder": "xx (s)"
+                    },
+                    ]
+                    }
+                }
+            });
     }
 
     Question.pickQuestion = async function(){
@@ -116,10 +198,10 @@ module.exports = function(Question) {
         let [err, listQuestion] = await to(Question.find())
         let question = {}
         question.type = "checkbox"
-        question.display_type = "inline"
-        question.name = "Pick questions"
-        question.required = "true"
-        question.placehoder = "Vui lòng chọn câu hỏi"
+        question.display_type = "dialog"
+        question.name = "questions"
+        // question.required = "true"
+        // question.placehoder = "Vui lòng chọn câu hỏi"
         let temp = []
         let i
         for (i in listQuestion){
@@ -142,7 +224,7 @@ module.exports = function(Question) {
             {arg: 'answers', type: 'object'}
         ],
         returns: [
-            {arg: 'data', type: 'object'},
+            {type: 'object'},
         ]
     })
 
@@ -160,7 +242,7 @@ module.exports = function(Question) {
         'pickQuestion', {
             http: {path: '/pickQuestion', verb: 'post'},
             accepts: [],
-            returns: {arg: 'data', type: 'object'}
+            returns: {type: 'object'}
         }
     )
 }
