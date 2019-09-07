@@ -10,11 +10,9 @@ module.exports = function(User) {
         //     age:req.age
         // }
         // User.upsert(userData)
-        //let context = vinJson.createJson();
-        //return "1"; 
+        // let context = vinJson.createJson();
 
-        return res.json({
-          "data": {
+        return {
             "metadata": {
               "app_name": "Contest",
               "app_id": 123456,
@@ -42,19 +40,17 @@ module.exports = function(User) {
                 },
               ]
             }
-          }
-      });
+          };
     }
 
 
     User.remoteMethod(
         'createUser', {
-            http: {path: '/', verb:  'get'},
+            http: {path: '/', verb:  'post'},
             accepts: [
                 {arg: 'req', type: 'object', 'http': {source: 'req'}}            ],
             returns: [
-                {arg: 'status', type: 'number'},
-                {arg: 'message', type: 'string'}],
+              {arg: 'data', type:'object'}],
         },
     )
 };
