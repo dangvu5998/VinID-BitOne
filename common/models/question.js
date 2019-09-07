@@ -111,6 +111,28 @@ module.exports = function(Question) {
         return [{msg:'ok'}];
     }
 
+    Question.pickQuestion = async function(){
+        let questionForm = vjson.createJson()
+        let [err, listQuestion] = await to(Question.find())
+        let question
+        question.type = "checkbox"
+        question.display_type = "inline"
+        question.name = "Pick questions"
+        question.required = "true"
+        question.placehoder = "Vui lòng chọn câu hỏi"
+        let temp = []
+        let i
+        for (i in listQuestion){
+            let element
+            element.label = listQuestion[i].content
+            element.value = i
+            temp.push(element)
+        }
+        question.options = temp
+        vjson.addElement(questionForm, question)
+        return questionForm
+    }
+
     Question.remoteMethod('createQuestion', {
         http: {path: '/', verb: 'post'},
         accepts: [
@@ -123,14 +145,22 @@ module.exports = function(Question) {
             {arg: 'data', type: 'object'},
         ]
     })
+
     Question.remoteMethod(
         'playerGetQuestion', {
             path: '/playerGetQuestion',
             accepts: [
-                {arg: 'userContestId', type: 'string', required: 'true'},
-                {arg: 'currentQuestion', type: 'number', required: 'true'}
+                {arg: 'userContestId', type: 'string', required: 'true'}
             ],
             returns: {arg: 'data', type: 'object'}
         }
     )
-};
+
+    Question.remoteMethod(
+        'pickQuestion', {
+            path: '/pickGetQuestion',
+            accepts: [],
+            returns: {arg: 'data', type: 'object'}
+        }
+    )
+}
