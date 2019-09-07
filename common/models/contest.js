@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = function(Contest) {
-	Contest.readyForm() = async function(contestId){
+	Contest.readyForm = async function(){
         let readyForm = vjson.createJson()
         vjson.addElement(readyForm, {
             type: 'text',
@@ -24,4 +24,12 @@ module.exports = function(Contest) {
         })
         return questionForm
     }
+
+    Contest.remoteMethod(
+        'readyForm', {
+            http: {path: '/readyForm', verb: 'post'},
+            accepts: [],
+        returns: [{arg: 'data', type: 'object'}]
+        }
+    )
 }
