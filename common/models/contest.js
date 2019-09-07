@@ -10,10 +10,10 @@ module.exports = function(Contest) {
         })
         vjson.addElement(readyForm, {
             label: "Ready",
-            type = "radio",
-            display_type = "inline",
-            name = "Ready",
-            required = "true",
+            type: "radio",
+            display_type: "inline",
+            name: "Ready",
+            required: "true",
             option: [{
                 label: "Chưa",
                 value: "not_ready"

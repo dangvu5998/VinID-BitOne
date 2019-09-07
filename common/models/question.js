@@ -1,6 +1,6 @@
 'use strict';
 
-let vjson = require('../utils/vinid-json')
+let vjson = require('../utils/vin-app.js')
 let app = require('../../server/server')
 let to = require('await-to-js').to
 
