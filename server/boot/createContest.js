@@ -1,5 +1,5 @@
 module.exports = function (app) {
-    app.get('/api-submit-contest', function (req, res) {
+    app.post('/api-submit-contest', function (req, res) {
         return res.json({
             "data": {
                 "metadata": {
@@ -15,7 +15,7 @@ module.exports = function (app) {
                     	"label": "Save",
                     	"background_color": "#6666ff", 
                         "cta": "request",
-                        "url": ""
+                        "url": "http://bitone.herokuapp.com/createContest"
                     },
                      "reset_button": {
                     	"label": "Reset",
