@@ -10,19 +10,19 @@
       "type": "number",
       "required": true
     },
-    "name": {
+    "contestName": {
       "type": "string",
-      "required": true
+      "required": false
     },
-    "content": {
+    "contestDes": {
       "type": "string",
-      "required": true
+      "required": false
     },
     "question": {
       "type": [
         "number"
       ],
-      "required": true
+      "required": false
     },
     "score": {
       "type": [
@@ -31,15 +31,15 @@
     },
     "timeStart": {
       "type": "date",
-      "required": true
+      "required": false
     },
     "timeOut": {
       "type": "date",
-      "required": true
+      "required": false
     },
     "ownerId": {
       "type": "number",
-      "required": true
+      "required": false
     }
   },
   "validations": [],
