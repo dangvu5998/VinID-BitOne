@@ -29,7 +29,7 @@ function questionToResponse(question, submitURL){
     elements.push(answerElement)
     let nextQuestionElement
     nextQuestionElement.type = "checkbox"
-    nextQuestionElement.display = "inline"
+    nextQuestionElement.display_type = "inline"
     nextQuestionElement.name = "Submit"
     nextQuestionElement.required = "true"
     elements.push(nextQuestionElement)
