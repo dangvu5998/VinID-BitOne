@@ -19,10 +19,6 @@
     "trueAnswer": {
       "type": "number",
       "required": true
-    },
-    "contestId": {
-      "type": "string",
-      "required": true
     }
   },
   "validations": [],

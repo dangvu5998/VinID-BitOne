@@ -11,17 +11,16 @@
       "required": true
     },
     "contestId": {
-      "type": "number",
+      "type": "string",
       "required": true
     },
     "currentQuestion": {
-      "type": "number"
+      "type": "number",
+      "default": 0
     },
     "score": {
-      "type": "number"
-    },
-    "time": {
-      "type": "date"
+      "type": "number",
+      "default": 0
     }
   },
   "validations": [],
