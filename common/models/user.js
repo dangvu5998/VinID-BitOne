@@ -53,8 +53,7 @@ module.exports = function(User) {
             accepts: [
                 {arg: 'req', type: 'object', 'http': {source: 'req'}}            ],
             returns: [
-                {arg: 'status', type: 'number'},
-                {arg: 'message', type: 'string'}],
+                {type: 'object'}],
         },
     )
 };
