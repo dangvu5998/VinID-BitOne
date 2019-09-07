@@ -6,11 +6,7 @@
     "validateUpsert": true
   },
   "properties": {
-    "questionId": {
-      "type": "number",
-      "required": true
-    },
-    "questionContent": {
+    "content": {
       "type": "string",
       "required": true
     },
@@ -22,10 +18,6 @@
     },
     "trueAnswer": {
       "type": "number",
-      "required": true
-    },
-    "contestId": {
-      "type": "string",
       "required": true
     }
   },
