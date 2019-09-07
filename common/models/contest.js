@@ -55,10 +55,10 @@ module.exports = function(Contest) {
                 {arg: 'contestDes', type: 'string'},
                 {arg: 'question', type: 'object'},
                 {arg: 'score', type: 'object'},
-                {arg: 'score', type: 'date'},
-                {arg: 'score', type: 'date'}
+                {arg: 'timeStart', type: 'date'},
+                {arg: 'timeOut', type: 'date'}
             ],
-            returns: [{arg: 'data', type:'object'}]
+            returns: [{type:'object'}]
         }
     )
 };

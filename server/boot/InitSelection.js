@@ -1,5 +1,5 @@
 module.exports = function (app) {
-    app.get('/api-init-selection', function (req, res) {
+    app.post('/', function (req, res) {
         return res.json({
             "data": {
                 "metadata": {
@@ -10,7 +10,7 @@ module.exports = function (app) {
                     	"label": "Next",
                     	"background_color": "#6666ff", 
                         "cta": "request",
-                        "url": "/api-init-selection"
+                        "url": "http://bitone.herokuapp.com//api-init-selection"
                     },
                      "reset_button": {
                     	"label": "Reset",
@@ -22,7 +22,7 @@ module.exports = function (app) {
                     {
                         "type": "text",
                         "style": "heading",
-                        "content": "Select:"
+                        "content": "Select: "
                     },
                     {
 	                    "label": "Selection",
