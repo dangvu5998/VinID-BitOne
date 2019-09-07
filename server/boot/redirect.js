@@ -1,6 +1,7 @@
+
 module.exports = function (app) {
-    app.get('/api-init-selection', function (req, selection, res) {
-        if (selection.value == 1)
+    app.post('/api-init-selection', function (req, selection, res) {
+        if (selection.value == 1){
             return res.json({
                "data": {
                 "metadata": {
@@ -77,8 +78,9 @@ module.exports = function (app) {
                 }
               }
             });
-        else if ( selection.value == 2) 
-            return res.json({
+        }
+        else if ( selection.value == 2) {
+                return res.json({
                 "data": {
                 "metadata": {
                     "app_name": "Contest",
@@ -129,10 +131,12 @@ module.exports = function (app) {
                     ]
                     }
                 }
-            });
-        else {
-            let question = app.models.Question;
-            return question.pickQuestion()
-        }
-    }
-
+              });
+             }    
+             else {
+            // let question = app.models.Question;
+            // return question.pickQuestion();
+                return 0
+             };
+    });
+}

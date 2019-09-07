@@ -219,9 +219,9 @@ module.exports = function(Question) {
         http: {path: '/', verb: 'post'},
         accepts: [
             {arg: 'req', type: 'object', 'http': {source: 'req'}},
-            {arg: 'contest_id', type: 'string'},
-            {arg: 'description', type: 'string'},
-            {arg: 'answers', type: 'object'}
+            {arg: 'contest', type: 'string'},
+            {arg: 'answerList', type: 'object'},
+            {arg: 'trueAnswer', type: 'number'}
         ],
         returns: [
             {type: 'object'},
