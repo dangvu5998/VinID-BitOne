@@ -6,11 +6,7 @@
     "validateUpsert": true
   },
   "properties": {
-    "questionId": {
-      "type": "number",
-      "required": true
-    },
-    "questionContent": {
+    "content": {
       "type": "string",
       "required": true
     },

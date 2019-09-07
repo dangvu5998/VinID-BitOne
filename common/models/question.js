@@ -4,6 +4,10 @@ let vjson = require('../utils/vinid-json')
 let app = require('../../server/server')
 let to = require('await-to-js').to
 
+function questionToResponse(question) {
+
+}
+
 module.exports = function(Question) {
     Question.playerGetQuestion = async function(userContestId){
         let questionForm = vjson.createJson()
