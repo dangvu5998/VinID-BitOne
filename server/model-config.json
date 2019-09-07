@@ -16,5 +16,17 @@
   "Question": {
     "dataSource": "mongodb",
     "public": true
+  },
+  "Contest": {
+    "dataSource": "mongodb",
+    "public": true
+  },
+  "UserContest": {
+    "dataSource": "mongodb",
+    "public": true
+  },
+  "User": {
+    "dataSource": "mongodb",
+    "public": true
   }
 }

@@ -1,0 +1,49 @@
+{
+  "name": "Contest",
+  "base": "Model",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "contestId": {
+      "type": "number",
+      "required": true
+    },
+    "contestName": {
+      "type": "string",
+      "required": false
+    },
+    "contestDes": {
+      "type": "string",
+      "required": false
+    },
+    "question": {
+      "type": [
+        "number"
+      ],
+      "required": false
+    },
+    "score": {
+      "type": [
+        "number"
+      ]
+    },
+    "timeStart": {
+      "type": "date",
+      "required": false
+    },
+    "timeOut": {
+      "type": "date",
+      "required": false
+    },
+    "ownerId": {
+      "type": "number",
+      "required": false
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}
