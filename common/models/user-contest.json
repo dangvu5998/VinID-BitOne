@@ -1,24 +1,27 @@
 {
-  "name": "Question",
+  "name": "UserContest",
   "base": "Model",
   "idInjection": true,
   "options": {
     "validateUpsert": true
   },
   "properties": {
-    "questionId": {
+    "userId": {
+      "type": "string",
+      "required": true
+    },
+    "contestId": {
       "type": "number",
       "required": true
     },
-    "answerList": {
-      "type": [
-        "string"
-      ],
-      "required": true
+    "currentQuestion": {
+      "type": "number"
     },
-    "trueAnswer": {
-      "type": "number",
-      "required": true
+    "score": {
+      "type": "number"
+    },
+    "time": {
+      "type": "date"
     }
   },
   "validations": [],

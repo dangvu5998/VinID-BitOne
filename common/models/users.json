@@ -1,24 +1,26 @@
 {
-  "name": "Question",
+  "name": "Users",
   "base": "Model",
   "idInjection": true,
   "options": {
     "validateUpsert": true
   },
   "properties": {
-    "questionId": {
-      "type": "number",
+    "userId": {
+      "type": "string",
       "required": true
     },
-    "answerList": {
-      "type": [
-        "string"
-      ],
+    "fullName": {
+      "type": "string",
       "required": true
     },
-    "trueAnswer": {
+    "gender": {
+      "type": "string",
+      "default": "Nam"
+    },
+    "age": {
       "type": "number",
-      "required": true
+      "default": 18
     }
   },
   "validations": [],
