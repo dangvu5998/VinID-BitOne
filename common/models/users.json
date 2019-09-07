@@ -1,28 +1,26 @@
 {
-  "name": "Question",
+  "name": "Users",
   "base": "Model",
   "idInjection": true,
   "options": {
     "validateUpsert": true
   },
   "properties": {
-    "questionId": {
-      "type": "number",
-      "required": true
-    },
-    "answerList": {
-      "type": [
-        "string"
-      ],
-      "required": true
-    },
-    "trueAnswer": {
-      "type": "number",
-      "required": true
-    },
-    "contestId": {
+    "userId": {
       "type": "string",
       "required": true
+    },
+    "fullName": {
+      "type": "string",
+      "required": true
+    },
+    "gender": {
+      "type": "string",
+      "default": "Nam"
+    },
+    "age": {
+      "type": "number",
+      "default": 18
     }
   },
   "validations": [],

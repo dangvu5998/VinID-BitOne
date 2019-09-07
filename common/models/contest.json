@@ -1,27 +1,36 @@
 {
-  "name": "Question",
+  "name": "Contest",
   "base": "Model",
   "idInjection": true,
   "options": {
     "validateUpsert": true
   },
   "properties": {
-    "questionId": {
+    "contestId": {
       "type": "number",
       "required": true
     },
-    "answerList": {
+    "question": {
       "type": [
-        "string"
+        "number"
       ],
       "required": true
     },
-    "trueAnswer": {
-      "type": "number",
+    "score": {
+      "type": [
+        "number"
+      ]
+    },
+    "timeStart": {
+      "type": "date",
       "required": true
     },
-    "contestId": {
-      "type": "string",
+    "timeOut": {
+      "type": "date",
+      "required": true
+    },
+    "ownerId": {
+      "type": "number",
       "required": true
     }
   },
