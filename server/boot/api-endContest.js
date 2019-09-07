@@ -9,7 +9,7 @@ module.exports = function (app) {
                     "submit_button": {
                         "label": "Ok",
                         "background_color": "#6666ff", //Background color of submit button
-                        "cta": "url",
+                        "cta": "request",
                         "url": "http://bitone.herokuapp.com/api-ranking"
                     },
                     "elements": [
