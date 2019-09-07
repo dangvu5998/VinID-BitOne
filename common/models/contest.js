@@ -47,18 +47,18 @@ module.exports = function(Contest) {
 	}
 
 	Contest.remoteMethod(
-		'createContest',
-		{ http: {path: '/createContest', verb: 'post'},
-		accepts: [
-	      {arg: 'req', type: 'object', 'http': {source: 'req'}},
-	      {arg: 'contestName', type: 'string' },
-	      {arg: 'contestDes', type: 'string'},
-	      {arg: 'question', type: 'object'},
-	      {arg: 'score', type: 'object'},
-	      {arg: 'score', type: 'date'},
-	      {arg: 'score', type: 'date'},
-    ],
-    returns: [
-    	  {arg: 'data', type:'object'},
-    ])
+		'createContest',{ 
+            http: {path: '/createContest', verb: 'post'},
+            accepts: [
+                {arg: 'req', type: 'object', 'http': {source: 'req'}},
+                {arg: 'contestName', type: 'string' },
+                {arg: 'contestDes', type: 'string'},
+                {arg: 'question', type: 'object'},
+                {arg: 'score', type: 'object'},
+                {arg: 'score', type: 'date'},
+                {arg: 'score', type: 'date'}
+            ],
+            returns: [{arg: 'data', type:'object'}]
+        }
+    )
 };

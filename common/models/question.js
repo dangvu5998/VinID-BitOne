@@ -148,7 +148,7 @@ module.exports = function(Question) {
 
     Question.remoteMethod(
         'playerGetQuestion', {
-            path: '/playerGetQuestion',
+            http: {path: '/playerGetQuestion', verb: 'post'},
             accepts: [
                 {arg: 'userContestId', type: 'string', required: 'true'}
             ],
@@ -158,7 +158,7 @@ module.exports = function(Question) {
 
     Question.remoteMethod(
         'pickQuestion', {
-            path: '/pickGetQuestion',
+            http: {path: '/pickQuestion', verb: 'post'},
             accepts: [],
             returns: {arg: 'data', type: 'object'}
         }
