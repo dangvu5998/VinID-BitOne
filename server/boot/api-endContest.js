@@ -10,12 +10,8 @@ module.exports = function (app) {
                         "label": "Ok",
                         "background_color": "#6666ff", //Background color of submit button
                         "cta": "request",
-                        "url": ""
-                    },
-                    "reset_button": {
-                        "label": "Xóa toàn bộ",
-                        "background_color": "#669999" //Background color of reset button
-                    },
+                        "url": "http://bitone.herokuapp.com/api-endContest"
+                    }
                 }
             }
         });
