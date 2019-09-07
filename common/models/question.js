@@ -6,7 +6,7 @@ let to = require('await-to-js').to
 
 function questionToResponse(question, submitURL){
     let elements = []
-    let questionElement 
+    let questionElement ={}
     questionElement.type = "text"
     questionElement.style = "paragraph"
     questionElement.content = question.questionContent
@@ -20,7 +20,7 @@ function questionToResponse(question, submitURL){
     let temp = []
     let i
     for (i in question.answerList){
-        let element
+        let element ={}
         element.label = question.answerList[i]
         element.value = i
         temp.push(element)
@@ -38,7 +38,7 @@ function questionToResponse(question, submitURL){
 
 function cuQuestionForm(submitURL){
     let elements = []
-    let questionElement 
+    let questionElement = {}
     questionElement.type = "input"
     questionElement.input_type = "textarea"
     questionElement.label = "Question"
@@ -64,7 +64,7 @@ function cuQuestionForm(submitURL){
     correctAnswerElement.placehoder = "Vui lòng chọn đáp án đúng"
     let temp = []
     for (i in question.answerList){
-        let element
+        let element = {}
         element.label = i
         element.value = i
         temp.push(element)
@@ -114,7 +114,7 @@ module.exports = function(Question) {
     Question.pickQuestion = async function(){
         let questionForm = vjson.createJson()
         let [err, listQuestion] = await to(Question.find())
-        let question
+        let question = {}
         question.type = "checkbox"
         question.display_type = "inline"
         question.name = "Pick questions"
