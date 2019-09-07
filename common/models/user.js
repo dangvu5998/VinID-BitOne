@@ -7,9 +7,9 @@ module.exports = function(User) {
       if (student === null) {
         let userData = {
           userId:userId,
-          fullName:req.fullName,
-          gender:req.gender,
-          age:req.age
+          fullName:req.body.fullName,
+          gender:req.body.gender,
+          age:req.body.age
         }
         User.upsert(userData)   
       }  
