@@ -1,0 +1,6 @@
+{
+  "mongodb": {
+    "connector": "loopback-connector-mongodb",
+    "url": "mongodb://bitone:hackathon2019@ds317808.mlab.com:17808/bitone"
+  }
+}
