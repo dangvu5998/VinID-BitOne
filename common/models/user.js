@@ -30,12 +30,6 @@ module.exports = function(User) {
                   "cta": "request",
                   "url": ""
                 },
-                "button": {
-                  "label": "Reset Question",
-                  "background_color": "#6666ff", 
-                  "cta": "request",
-                  "url": ""
-                },
                 "elements": [
                   {
                     "type":"input",
