@@ -4,15 +4,10 @@ module.exports = function (app) {
         if (selection.value == 1){
             return res.json({
                "data": {
-                "metadata": {
+                  "metadata": {
                     "app_name": "Contest",
                     "app_id": 123456,
-                    "title": "Tao",
-                    "text_view": {
-                        "type": "text",
-                        "style": "heading",
-                        "content": "Hãy tạo 1 contest thú vị  nào ..."
-                    },
+                    "title": "...",
                     "submit_button": {
                         "label": "Save",
                         "background_color": "#6666ff", 
@@ -26,6 +21,11 @@ module.exports = function (app) {
                         "url": ""
                     },
                     "elements": [
+                    {
+                        "type": "text",
+                        "style": "heading",
+                        "content": "Select: "
+                    },
                     {
                         "type":"input",
                         "name": "contestName",
@@ -73,7 +73,7 @@ module.exports = function (app) {
                         "label":"Duration",
                         "required": true,
                         "placeholder": "xx (s)"
-                    },
+                    }
                     ]
                 }
               }
@@ -85,12 +85,7 @@ module.exports = function (app) {
                 "metadata": {
                     "app_name": "Contest",
                     "app_id": 123456,
-                    "title": "Tao",
-                    "text_view": {
-                        "type": "text",
-                        "style": "heading",
-                        "content": "Hãy tạo 1 question mới"
-                    },
+                    "title": "BIT",
                     "submit_button": {
                         "label": "Save",
                         "background_color": "#6666ff", 
@@ -104,6 +99,11 @@ module.exports = function (app) {
                         "url": ""
                     },
                     "elements": [
+                    {
+                        "type": "text",
+                        "style": "heading",
+                        "content": "Select: "
+                    },
                     {
                         "type":"input",
                         "name": "content",
@@ -126,9 +126,8 @@ module.exports = function (app) {
                         "name": "trueAnswer",
                         "label":"Question",
                         "required": true,
-                        "placeholder": "1"
-                    }
-                    ]
+                        "placeholder": "1 or 2 or 3 or 4"
+                    }]
                     }
                 }
               });
@@ -136,7 +135,7 @@ module.exports = function (app) {
              else {
             // let question = app.models.Question;
             // return question.pickQuestion();
-                return 0
+                return 0;
              };
     });
 }
