@@ -205,7 +205,7 @@ module.exports = function(Question) {
         let temp = []
         let i
         for (i in listQuestion){
-            let element
+            let element = {}
             element.label = listQuestion[i].content
             element.value = i
             temp.push(element)
@@ -216,7 +216,7 @@ module.exports = function(Question) {
     }
 
     Question.remoteMethod('createQuestion', {
-        http: {path: '/', verb: 'post'},
+        http: {path: '/create_question', verb: 'post'},
         accepts: [
             {arg: 'req', type: 'object', 'http': {source: 'req'}},
             {arg: 'contest', type: 'string'},

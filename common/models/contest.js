@@ -35,7 +35,7 @@ module.exports = function(Contest) {
                         "url": "http://bitone.herokuapp.com//createContest"
                     },
                     "elements": [
-                     {
+                    {
                         "type": "text",
                         "style": "heading",
                         "content": "Ban da tao contest thanh cong!"
@@ -65,7 +65,6 @@ module.exports = function(Contest) {
                     "type": "text",
                     "style": "heading",
                     "content": contest.contestDes
-            
                 },
               ]
             }
