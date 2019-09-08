@@ -49,7 +49,7 @@ module.exports = function(Contest) {
     }
     
     Contest.getDescription = async (req) =>{
-        let [err, contest] = await to(Contest.findOne({where: {contestId: req.body.contestId}}));
+        let [err, contest] = await to(Contest.findOne({where: {contestId: req.header.contestId}}));
         console.log(req.userId);
         return {
             "metadata": {
@@ -60,7 +60,7 @@ module.exports = function(Contest) {
                 "label": "Go to contest",
                 "background_color": "#6666ff", 
                 "cta": "request",
-                "url": "http://bitzero.herokuapp.com/api/Users/"+req.body.userId+"/"+req.body.contestId.toString()
+                "url": "http://bitzero.herokuapp.com/api/Users/"+req.body.userId+"/"+req.header.contestId.toString()
               },
               "elements": [
                 {
