@@ -19,7 +19,7 @@ module.exports = function(UserContest) {
         let qrCodesrc = generateQR(message).toString()
         let element = {}
         element.type = "web"
-        let temp = "<html><body><img src =" + qrCodesrc + "></body></html>"
+        let temp = "<html><body><img src =\"" + qrCodesrc + "\"></body></html>"
         element.content = temp
         vjson.addElement(QRForm, element)
         return QRForm

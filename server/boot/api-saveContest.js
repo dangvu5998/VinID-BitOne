@@ -31,6 +31,6 @@ module.exports = function(app){
         contestUser = app.models.UserContest
         kk = contestUser.createQRcode("https://qr.id.vin/hook?url=http://bitone.herokuapp.com/api-start&method=POST?contestId=123")
         console.log(kk)
-        return kk  
+        return kk
     });
 }
