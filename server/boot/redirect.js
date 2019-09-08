@@ -54,22 +54,22 @@ module.exports = function (app) {
                                 "required": true,
                                 "placeholder": "score_qs1;score_qs2;score_qs3;..."
                             },
-                            {
-                                "type": "input",
-                                "input_type": "text",
-                                "name": "TimeStart",
-                                "label": "Time Start",
-                                "required": true,
-                                "placeholder": "hh:mm dd:mm:yy"
-                            }, 
-                            {
-                                "type": "input",
-                                "input_type": "text",
-                                "name": "TimeOut",
-                                "label": "Duration",
-                                "required": true,
-                                "placeholder": "xx (s)"
-                            }
+                            // {
+                            //     "type": "input",
+                            //     "input_type": "text",
+                            //     "name": "TimeStart",
+                            //     "label": "Time Start",
+                            //     "required": true,
+                            //     "placeholder": "hh:mm dd:mm:yy"
+                            // }, 
+                            // {
+                            //     "type": "input",
+                            //     "input_type": "text",
+                            //     "name": "TimeOut",
+                            //     "label": "Duration",
+                            //     "required": true,
+                            //     "placeholder": "xx (s)"
+                            // }
                         ]
                     }
                 }
