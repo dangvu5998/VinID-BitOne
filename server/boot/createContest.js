@@ -6,11 +6,6 @@ module.exports = function (app) {
                     "app_name": "Contest",
                     "app_id": 123456,
                     "title": "Tao",
-                    "text_view": {
-                        "type": "text",
-                        "style": "heading",
-                        "content": "Hãy tạo 1 contest thú vị  nào ..."
-                    },
                     "submit_button": {
                     	"label": "Save",
                     	"background_color": "#6666ff", 

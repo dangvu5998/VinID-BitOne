@@ -2,19 +2,18 @@
 module.exports = function (app) {
     app.post('/api-init-selection', function (req, res) {
         selection = req.body.selection
-        console.log(req)
         if (selection == 1) {
             return res.json({
                 "data": {
                     "metadata": {
                         "app_name": "Contest",
                         "app_id": 123456,
-                        "title": "...",
+                        "title": "Tạo Contest",
                         "submit_button": {
                             "label": "Save",
                             "background_color": "#6666ff",
                             "cta": "request",
-                            "url": "http://bitone.herokuapp.com/createContest"
+                            "url": "http:/bitone.herokuapp.com/api-saveContest"
                         },
                         "reset_button": {
                             "label": "Reset",
@@ -23,12 +22,7 @@ module.exports = function (app) {
                             "url": ""
                         },
                         "elements": [
-                            {
-                                "type": "text",
-                                "style": "heading",
-                                "content": "Select: "
-                            },
-                            {
+                            {                            
                                 "type": "input",
                                 "name": "contestName",
                                 "input_type": "text",
@@ -38,7 +32,7 @@ module.exports = function (app) {
                             },
                             {
                                 "type": "input",
-                                "input_type": "text",
+                                "input_type": "textarea",
                                 "name": "contestDes",
                                 "label": "Contest Description",
                                 "required": false,
