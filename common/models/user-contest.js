@@ -16,10 +16,10 @@ let to = require('await-to-js').to
 module.exports = function(UserContest) {
     UserContest.createQRcode = async function(message){
         let QRForm = vjson.createJson()
-        let qrCodesrc = generateQR(message)
+        let qrCodesrc = generateQR(message).toString()
         let element = {}
         element.type = "web"
-        let temp = str.concat("<html><body><img src =", qrCodesrc, "></body></html>")
+        let temp = "<html><body><img src =" + qrCodesrc + "></body></html>"
         element.content = temp
         vjson.addElement(QRForm, element)
         return QRForm
@@ -32,4 +32,17 @@ module.exports = function(UserContest) {
         ],
         returns: {arg: 'data', type: 'object'}
     })
+    
+    // UserContest.createReadyForm = async function(req){
+    //     let readyForm = vjson.createJson()
+    //     let element 
+    //     element.type = "text"
+    //     element.style = "heading"
+    //     element.content = "Bạn sẵn sàng chơi chưa?"
+    //     vjson.addElement(readyForm, element)
+    //     return readyForm
+    // }
+
+    // UserContest.remoteMethod = async func
+
 };
