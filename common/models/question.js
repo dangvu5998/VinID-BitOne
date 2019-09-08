@@ -203,15 +203,18 @@ module.exports = function(Question) {
         // question.required = "true"
         // question.placehoder = "Vui lòng chọn câu hỏi"
         let temp = []
-        let i
-        for (i in listQuestion){
+        for (let i in listQuestion){
             let element = {}
             element.label = listQuestion[i].content
             element.value = i
             temp.push(element)
         }
+        
         question.options = temp
         vjson.addElement(questionForm, question)
+        questionForm.data.metadata.submit_button.url = "https://bitone.herokuapp.com/api-init"
+        questionForm.data.metadata.submit_button.label = "Trở lại"
+
         return questionForm
     }
 
@@ -240,7 +243,7 @@ module.exports = function(Question) {
 
     Question.remoteMethod(
         'pickQuestion', {
-            http: {path: '/pickQuestion', verb: 'post'},
+            http: {path: '/api-pickQuestion', verb: 'get'},
             accepts: [],
             returns: {type: 'object'}
         }

@@ -30,7 +30,8 @@ module.exports = function(app){
 
         contestUser = app.models.UserContest
         formQR = await contestUser.createQRcode("https://qr.id.vin/hook?url=http://bitone.herokuapp.com/api-start&method=POST?contestId=123")
-        //console.log(formQR)
-        return res.json(formQR)
+        return res.json({
+            "data": formQR
+        })
     });
 }
