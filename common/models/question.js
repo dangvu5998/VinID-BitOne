@@ -120,11 +120,11 @@ module.exports = function(Question) {
                 "metadata": {
                     "app_name": "Contest",
                     "app_id": 123456,
-                    "title": "Tao",
+                    "title": "Tạo",
                     "text_view": {
                         "type": "text",
                         "style": "heading",
-                        "content": "Hãy tao contest"
+                        "content": "Hãy tạo contest"
                     },
                     "submit_button": {
                         "label": "Tao Contest",

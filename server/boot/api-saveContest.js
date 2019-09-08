@@ -15,9 +15,10 @@ module.exports = function(app){
         // timeStart = new Date(date[2], date[1], date[0], time[0], time[1], 0, 0)
         // timeOut = new Date(0,0,0,0,0,timeOut,0)
 
+        contestId = Math.random()
         contestModel.create(
             {
-                "contestId": "123",
+                "contestId": contestId,
                 "contestName": contestName,
                 "contestDes": contesDes,
                 "question": questionList,
@@ -29,7 +30,7 @@ module.exports = function(app){
         )
 
         contestUser = app.models.UserContest
-        formQR = await contestUser.createQRcode("https://qr.id.vin/hook?url=http://bitone.herokuapp.com/api/Contests/getDescription&method=POST?contestId=1")
+        formQR = await contestUser.createQRcode("https://qr.id.vin/hook?url=http://bitone.herokuapp.com/api/Contests/getDescription&method=POST?contestId="+contestId.toString())
         //console.log(formQR)
         return res.json(formQR)
     });
