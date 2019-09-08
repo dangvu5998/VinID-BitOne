@@ -102,11 +102,8 @@ module.exports = function (Contest) {
 							"type": "text",
 							"style": "paragraph",
 							"content": "Chúc mừng bạn đã hoàn thành contest!\n"
-								+ "Điểm của bạn là " + score + "\n" + "Ấn OK để kết thúc"
+								+ "Điểm của bạn là " + score + "\n" + "Ấn X để kết thúc"
 						},
-						{
-							"type": "input",
-						}
 					]
 				}
 			}
@@ -137,7 +134,7 @@ module.exports = function (Contest) {
 					{
 						"type": "SCORE",
 						"style": "heading",
-						"content": score
+						"content": "Điểm " + score.toString()
 					},
 					{
 						"label": "Câu trả lời",

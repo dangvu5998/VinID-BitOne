@@ -25,7 +25,7 @@ module.exports = function(User) {
           "app_id": 123456,
           "title": "BIT",
           "submit_button": {
-            "label": "Start do contest",
+            "label": "Bắt đầu contest",
             "background_color": "#6666ff", 
             "cta": "request",
             "url": "http://bitone.herokuapp.com/api/Contests/1/firstQuestion"

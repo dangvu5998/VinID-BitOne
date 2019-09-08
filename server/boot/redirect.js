@@ -34,7 +34,7 @@ module.exports = function (app) {
                                 "type": "input",
                                 "input_type": "textarea",
                                 "name": "contestDes",
-                                "label": "Mô ta Contest",
+                                "label": "Mô tả Contest",
                                 "required": false,
                                 "placeholder": "..."
                             },
