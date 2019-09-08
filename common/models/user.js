@@ -2,7 +2,6 @@
 let to = require('await-to-js').to;
 module.exports = function(User) {
 
-<<<<<<< HEAD
     User.createUser = async function(req) {
       let userId = req.user_id
       console.log(userId)
@@ -16,18 +15,7 @@ module.exports = function(User) {
           userId:userId,
           fullName:req.body.userName,
           gender:req.body.userGender,
-          age:req.body.userAge
-=======
-    User.createUser = async function(req,userId,contestId) {
-      let [err, user] = await to(User.findOne({where: {userId: userId}}))
-      console.log(user)
-      if (user === null) {
-        let userData = {
-          userId:userId,
-          fullName:req.body.fullName,
-          gender:req.body.gender,
-          age:req.body.age
->>>>>>> parent of 5935899... fix api information
+          age: req.body.userAge,
         }
         User.upsert(userData)   
       }  

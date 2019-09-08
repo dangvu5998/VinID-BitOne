@@ -63,11 +63,7 @@ module.exports = function (Contest) {
 					"label": "Go to contest",
 					"background_color": "#6666ff",
 					"cta": "request",
-<<<<<<< HEAD
-					"url": "http://bitone.herokuapp.com/api-addUser"
-=======
-					"url": ""
->>>>>>> parent of 5935899... fix api information
+					"url": "http://bitone.herokuapp.com/api-addUser"					
 				},
 				"elements": [
 					{
