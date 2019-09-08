@@ -1,5 +1,5 @@
 module.exports = function (app) {
-    app.get('/api-addUser', function (req, res) {
+    app.post('/api-addUser', function (req, res) {
         return res.json({
             "data": {
                 "metadata": {
