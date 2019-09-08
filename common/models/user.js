@@ -4,7 +4,8 @@ module.exports = function(User) {
 
     User.createUser = async function(req,userId) {
       let [err, user] = await to(User.findOne({where: {userId: userId}}))
-      if (student === null) {
+      console.log(user)
+      if (user === null) {
         let userData = {
           userId:userId,
           fullName:req.body.fullName,
@@ -29,7 +30,6 @@ module.exports = function(User) {
                 "type": "text",
                 "style": "heading",
                 "content": "Are you ready?"
-        
             },
           ]
         }

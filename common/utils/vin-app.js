@@ -11,8 +11,6 @@ function appFormTemplate(additionAttr) {
   return result;
 }
 
-
-
 module.exports = {
     createJson: function() {
         return {
