@@ -85,12 +85,12 @@ function questionToResponse(question) {
 }
 
 module.exports = function(Question) {
-    Question.playerGetQuestion = async function(userContestId){
+    Question.playerGetQuestion = async function(userId, contestId){
         let questionForm = vjson.createJson()
         let Question = app.models.Question
         let Contest = app.models.Contest
         let UserContest = app.models.UserContest
-        let [err0, userContest] = await to(UserContest.findOne({where: {userContestId: userContestId}}))
+        let [err0, userContest] = await to(UserContest.findOne({where: {userId: userId, contestId: contestId}}))
         let [err1, contest] = await to(Contest.findOne({where: {contestId: userContest.contestId}}))
         let [err2, question] = await to(Question.findOne({where: {questionId: contest.questions[userContest.currentQuestion]}}))
         if (err0||err1||err2) {
@@ -235,7 +235,8 @@ module.exports = function(Question) {
         'playerGetQuestion', {
             http: {path: '/playerGetQuestion', verb: 'post'},
             accepts: [
-                {arg: 'userContestId', type: 'string', required: 'true'}
+                {arg: 'userId', type: 'string', required: 'true'},
+                {arg: 'contestId', type: 'string', required: 'true'}
             ],
             returns: {arg: 'data', type: 'object'}
         }

@@ -23,24 +23,31 @@ module.exports = function(UserContest) {
         })
     }
 
+    UserContest.createReadyForm = async function(message){
+        let readyForm = vjson.createJson()
+        let element 
+        element.type = "text"
+        element.style = "heading"
+        element.content = "Bạn sẵn sàng chơi chưa?"
+        vjson.addElement(readyForm, element)
+        vjson.updateURL(readyForm, "")
+        return readyForm
+    }
+
     UserContest.remoteMethod('createQRcode', {
         http: {path: '/createQRcode', verb: 'post'},
         accepts: [
             {arg: 'message', type: 'object', required: 'true'}
         ],
-        returns: {arg: 'data', type: 'object'}
+        returns: {arg: 'data', type: 'string'}
     })
     
-    // UserContest.createReadyForm = async function(req){
-    //     let readyForm = vjson.createJson()
-    //     let element 
-    //     element.type = "text"
-    //     element.style = "heading"
-    //     element.content = "Bạn sẵn sàng chơi chưa?"
-    //     vjson.addElement(readyForm, element)
-    //     return readyForm
-    // }
-
-    // UserContest.remoteMethod = async func
+    UserContest.remoteMethod('createReadyForm',{
+        http: {path: '/createReadyForm', verb: 'post'},
+        accepts: [
+            {arg: 'message', type: 'object', required: 'true'}
+        ],
+        returns: {arg: 'data', type: 'object'}
+    })
 
 };
