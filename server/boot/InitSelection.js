@@ -20,32 +20,35 @@ module.exports = function (app) {
                     },
                     "elements": [
                         {
-                            "type": "text",
-                            "style": "heading",
-                            "content": "Select: "
+                            "type": "input"
                         },
-                        {
-                            "label": "",
-                            "type": "radio",
-                            "display_type": "inline",
-                            "required": true,
-                            "name": "selection",
-                            "placeholder": "",
-                            "options": [
-                                {
-                                    "label": "Tạo Contest mới.",   //Tên hiển thị
-                                    "value": "1"  //Giá trị
-                                },
-                                {
-                                    "label": "Thêm câu hỏi mới.",
-                                    "value": "2"
-                                },
-                                {
-                                    "label": "Thư viện câu hỏi.",
-                                    "value": "3"
-                                }
-                            ]
-                        }
+                    //     {
+                    //         "type": "text",
+                    //         "style": "heading",
+                    //         "content": "Select: "
+                    //     },
+                    //     {
+                    //         "label": "",
+                    //         "type": "radio",
+                    //         "display_type": "inline",
+                    //         "required": true,
+                    //         "name": "selection",
+                    //         "placeholder": "",
+                    //         "options": [
+                    //             {
+                    //                 "label": "Tạo Contest mới.",   //Tên hiển thị
+                    //                 "value": "1"  //Giá trị
+                    //             },
+                    //             {
+                    //                 "label": "Thêm câu hỏi mới.",
+                    //                 "value": "2"
+                    //             },
+                    //             {
+                    //                 "label": "Thư viện câu hỏi.",
+                    //                 "value": "3"
+                    //             }
+                    //         ]
+                    //     }
                     ]
                 }
             }
