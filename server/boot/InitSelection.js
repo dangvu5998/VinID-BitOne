@@ -1,5 +1,5 @@
 module.exports = function (app) {
-    app.get('/api-init', function (req, res) {
+    app.post('/api-init', function (req, res) {
         return res.json({
             "data": {
                 "metadata": {
