@@ -39,7 +39,7 @@ module.exports = function(UserContest) {
         accepts: [
             {arg: 'message', type: 'object', required: 'true'}
         ],
-        returns: {arg: 'data', type: 'string'}
+        returns: {type: 'string'}
     })
     
     UserContest.remoteMethod('createReadyForm',{
@@ -47,7 +47,7 @@ module.exports = function(UserContest) {
         accepts: [
             {arg: 'message', type: 'object', required: 'true'}
         ],
-        returns: {arg: 'data', type: 'object'}
+        returns: {type: 'object'}
     })
 
 };

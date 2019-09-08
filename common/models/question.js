@@ -246,7 +246,7 @@ module.exports = function(Question) {
         'pickQuestion', {
             http: {path: '/api-pickQuestion', verb: 'get'},
             accepts: [],
-            returns: {type: 'object'}
+            returns: {arg: 'data', type: 'object'}
         }
     )
 }
