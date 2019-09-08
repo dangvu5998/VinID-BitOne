@@ -1,5 +1,7 @@
 'use strict';
 let to = require('await-to-js').to
+var app = require('../../server/server');
+//var Question = app.models.Question;
 
 module.exports = function(Contest) {
 	Contest.createContest = async (req, res, contestName, contestDes, Question, Score, TimeStart, TimeOut  ) => {
@@ -47,7 +49,7 @@ module.exports = function(Contest) {
     }
     
     Contest.getDescription = async (req) =>{
-        let [err, contest] = await to(Contest.findOne({where: {constestId: req.body.constestId}}));
+        let [err, contest] = await to(Contest.findOne({where: {contestId: req.body.contestId}}));
         console.log(req.userId);
         return {
             "metadata": {
@@ -58,7 +60,7 @@ module.exports = function(Contest) {
                 "label": "Go to contest",
                 "background_color": "#6666ff", 
                 "cta": "request",
-                "url": "http://bitzero.herokuapp.com/api/Users/"+req.body.userId
+                "url": "http://bitzero.herokuapp.com/api/Users/"+req.body.userId+"/"+req.body.contestId.toString()
               },
               "elements": [
                 {
@@ -66,6 +68,136 @@ module.exports = function(Contest) {
                     "style": "heading",
                     "content": contest.contestDes
                 },
+              ]
+            }
+        };
+    }
+
+    Contest.getNextQuestion = async(req,contestId,numberQuestion,indexQuestion)=>{
+      if (Number(indexQuestion)>Number(numberQuestion)-1){
+        return {
+          "metadata": {
+            "app_name": "Contest",
+            "app_id": 123456,
+            "title": "Kết thúc cuộc thi",
+            "submit_button": {
+                "label": "Ok",
+                "background_color": "#6666ff", //Background color of submit button
+                "cta": "request",
+                "url": "http://bitone.herokuapp.com/api-ranking"
+            },
+            "elements": [
+                {
+                    "type": "text",
+                    "style": "paragraph",
+                    "content": "Chúc mừng bạn đã hoàn thành contest! \n Ấn OK để xem ranking"
+                },
+                {
+                    "type": "input",
+                }
+            ]
+          }
+        }
+      }
+
+      let [err, contest] = await to(Contest.findOne({where: {contestId: Number(contestId)}}));
+      
+      var Question = app.models.Question;
+      let contentQuestion  = await Question.findOne({where:{questionId:contest.question[Number(indexQuestion)]}});
+
+      return {
+        "metadata": {
+          "app_name": "Contest",
+          "app_id": 123456,
+          "title": "BIT",
+          "submit_button": {
+            "label": "Next questions",
+            "background_color": "#6666ff", 
+            "cta": "request",
+            "url": "http://bitzero.herokuapp.com/api/Contests/"+contestId+"/number/"+numberQuestion+"/nextQuestion/"+(indexQuestion+1).toString()
+          },
+          "elements": [
+            {
+                "type": "text",
+                "style": "heading",
+                "content": contentQuestion.content
+            },
+            {
+                "label": "Câu trả lời",
+                "type": "radio/checkbox",
+                "display_type": "inline/dialog", 
+                "required": true/false,
+                "name": "Answers",   
+                "placeholder": "Chọn đáp án ", 
+                "options": [{
+                    "label": contentQuestion.answerList[0],   
+                    "value": 0  
+                  }, {
+                    "label": contentQuestion.answerList[1],   
+                    "value": 1  
+                  },{
+                    "label": contentQuestion.answerList[2],   
+                    "value": 2 
+                  },{
+                    "label": contentQuestion.answerList[3],   
+                    "value": 3  
+                  }
+                ]
+            }
+
+          ]
+        }
+      };
+
+    }
+
+
+    Contest.getFirstQuestion = async (req,contestId) =>{
+        let [err, contest] = await to(Contest.findOne({where: {contestId: Number(contestId)}}));
+        let numberQuestion = contest.question.length;
+        var Question = app.models.Question;
+        let contentQuestion  = await Question.findOne({where:{questionId:contest.question[0]}});
+
+        return {
+            "metadata": {
+              "app_name": "Contest",
+              "app_id": 123456,
+              "title": "BIT",
+              "submit_button": {
+                "label": "Next questions",
+                "background_color": "#6666ff", 
+                "cta": "request",
+                "url": "http://bitzero.herokuapp.com/api/Contests/"+contestId+"/number/"+numberQuestion.toString()+"/nextQuestion/1"
+              },
+              "elements": [
+                {
+                    "type": "text",
+                    "style": "heading",
+                    "content": contentQuestion.content
+                },
+                {
+                    "label": "Câu trả lời",
+                    "type": "radio/checkbox",
+                    "display_type": "inline/dialog", 
+                    "required": true/false,
+                    "name": "Answers",   
+                    "placeholder": "Chọn đáp án ", 
+                    "options": [{
+                        "label": contentQuestion.answerList[0],   
+                        "value": 0  
+                      }, {
+                        "label": contentQuestion.answerList[1],   
+                        "value": 1  
+                      },{
+                        "label": contentQuestion.answerList[2],   
+                        "value": 2 
+                      },{
+                        "label": contentQuestion.answerList[3],   
+                        "value": 3  
+                      }
+                    ]
+                }
+
               ]
             }
         };
@@ -83,7 +215,32 @@ module.exports = function(Contest) {
         }
     )
 
+  Contest.remoteMethod(
+  'getFirstQuestion',{ 
+          http: {path: '/:contestId/firstQuestion', verb: 'get'},
+          accepts: [
+              {arg: 'req', type: 'object', 'http': {source: 'req'}},
+              {arg:'contestId',type :'string',require:true}
+          ],
+          returns: [
+              {arg: 'data', type:'object'}]
+      }
+  )
 
+  Contest.remoteMethod(
+    'getNextQuestion',{ 
+            http: {path: '/:contestId/number/:numberQuestion/nextQuestion/:indexQuestion', verb: 'get'},
+            accepts: [
+                {arg: 'req', type: 'object', 'http': {source: 'req'}},
+                {arg:'contestId',type :'string',require:true},
+                {arg:'numberQuestion',type :'string',require:true},
+                {arg:'indexQuestion',type :'string',require:true}
+            ],
+            returns: [
+                {arg: 'data', type:'object'}]
+        }
+    )
+    
 	Contest.remoteMethod(
 		'createContest',{ 
             http: {path: '/createContest', verb: 'post'},
