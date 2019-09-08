@@ -3,7 +3,7 @@ let to = require('await-to-js').to;
 module.exports = function(User) {
 
     User.createUser = async function(req) {
-      userId = req.user_id
+      let userId = req.user_id
       let [err, user] = await to(User.findOne({where: {userId: userId}}))
       console.log(user)
       if (user === null) {
