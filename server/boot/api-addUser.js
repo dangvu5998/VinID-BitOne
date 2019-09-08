@@ -13,29 +13,42 @@ module.exports = function (app) {
                         "url": "http://bitone.herokuapp.com/api/Users/createUser"
                     },
                     "elements": [
-                        {                            
+                        {
                             "type": "input",
                             "name": "userName",
                             "input_type": "text",
-                            "label": "User Name",
+                            "label": "Tên người chơi",
                             "required": true,
-                            "placeholder": "User Name"
+                            "placeholder": "..."
                         },
                         {
                             "type": "input",
                             "input_type": "number",
                             "name": "userAge",
-                            "label": "User Age",
+                            "label": "Tuổi",
                             "required": false,
-                            "placeholder": "Contest Description"
+                            "placeholder": "..."
                         },
                         {
-                            "type": "input",
-                            "input_type": "text",
+                            "type": "radio",
                             "name": "userGender",
-                            "label": "User Gender",
-                            "required": false,
-                            "placeholder": "Contest Description"
+                            "label": "Giới tính",
+                            "display_type": "inline",
+                            "required": true,
+                            "options": [
+                                {
+                                    "label": "Nam",   //Tên hiển thị
+                                    "value": "Nam"  //Giá trị
+                                },
+                                {
+                                    "label": "Nữ",
+                                    "value": "Nữ"
+                                },
+                                {
+                                    "label": "Khác",
+                                    "value": "Khác"
+                                },
+                            ]
                         },
                     ]
                 }

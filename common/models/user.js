@@ -34,7 +34,7 @@ module.exports = function(User) {
             {
                 "type": "text",
                 "style": "heading",
-                "content": "Are you ready?"
+                "content": "Bạn đã sẵn sàng chưa?"
             },
             {
               "type": "input",
