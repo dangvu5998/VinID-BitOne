@@ -3,11 +3,11 @@ module.exports = function (app) {
     app.post('/api-addQuestion', function (req, res) {
         userId = req.user_id
         question = req.body.question
-        anwserA = req.body.anwserA
-        anwserB = req.body.anwserB
-        anwserC = req.body.anwserC
-        anwserD = req.body.anwserD
-        trueAnwser = req.body.trueAnwser
+        answerA = req.body.answerA
+        answerB = req.body.answerB
+        answerC = req.body.answerC
+        answerD = req.body.answerD
+        trueanswer = req.body.trueanswer
         continueAdd = req.body.continueAdd
 
         // Add question to database
@@ -16,8 +16,8 @@ module.exports = function (app) {
             {
                 "questionId" : "",
                 "content": question,
-                "answerList": [anwserA, anwserB, anwserC, anwserD],
-                "trueAnswer": trueAnswer,
+                "answerList": [answerA, answerB, answerC, answerD],
+                "trueAnswer": trueanswer,
                 "userId": userId,
             })
 
