@@ -73,7 +73,12 @@ module.exports = function(Contest) {
         };
     }
 
-    Contest.getNextQuestion = async(req,contestId,numberQuestion,indexQuestion)=>{
+    Contest.getNextQuestion = async(req,contestId,numberQuestion,trueAnswer,score,indexQuestion)=>{
+
+      let lastAnswer = req.body.Answers[0];
+
+      if (lastAnswer===trueAnswer) score = (Number(score)+1).toString();
+
       if (Number(indexQuestion)>Number(numberQuestion)-1){
         return {
           "metadata": {
@@ -90,7 +95,8 @@ module.exports = function(Contest) {
                 {
                     "type": "text",
                     "style": "paragraph",
-                    "content": "Chúc mừng bạn đã hoàn thành contest! \n Ấn OK để xem ranking"
+                    "content": "Chúc mừng bạn đã hoàn thành contest! \n "
+                            + "Điểm của bạn là " +score+"\n"+"Ấn OK để xem ranking"
                 },
                 {
                     "type": "input",
@@ -114,13 +120,18 @@ module.exports = function(Contest) {
             "label": "Next questions",
             "background_color": "#6666ff", 
             "cta": "request",
-            "url": "http://bitzero.herokuapp.com/api/Contests/"+contestId+"/number/"+numberQuestion+"/nextQuestion/"+(indexQuestion+1).toString()
+            "url": "http://bitzero.herokuapp.com/api/Contests/"+contestId+"/number/"+numberQuestion+"/right/"+contentQuestion.trueAnswer+"/score/"+score+"/nextQuestion/"+(Number(indexQuestion)+1).toString()
           },
           "elements": [
             {
                 "type": "text",
                 "style": "heading",
                 "content": contentQuestion.content
+            },
+            {
+              "type": "SCORE",
+              "style": "heading",
+              "content": score
             },
             {
                 "label": "Câu trả lời",
@@ -167,13 +178,18 @@ module.exports = function(Contest) {
                 "label": "Next questions",
                 "background_color": "#6666ff", 
                 "cta": "request",
-                "url": "http://bitzero.herokuapp.com/api/Contests/"+contestId+"/number/"+numberQuestion.toString()+"/nextQuestion/1"
+                "url": "http://bitzero.herokuapp.com/api/Contests/"+contestId+"/number/"+numberQuestion.toString()+"/right/"+contentQuestion.trueAnswer+"/score/0/nextQuestion/1"
               },
               "elements": [
                 {
                     "type": "text",
                     "style": "heading",
                     "content": contentQuestion.content
+                },
+                {
+                  "type": "SCORE",
+                  "style": "heading",
+                  "content": "0"
                 },
                 {
                     "label": "Câu trả lời",
@@ -229,11 +245,13 @@ module.exports = function(Contest) {
 
   Contest.remoteMethod(
     'getNextQuestion',{ 
-            http: {path: '/:contestId/number/:numberQuestion/nextQuestion/:indexQuestion', verb: 'get'},
+            http: {path: '/:contestId/number/:numberQuestion/right/:trueAnswer/score/:score/nextQuestion/:indexQuestion', verb: 'get'},
             accepts: [
                 {arg: 'req', type: 'object', 'http': {source: 'req'}},
                 {arg:'contestId',type :'string',require:true},
                 {arg:'numberQuestion',type :'string',require:true},
+                {arg:'trueAnswer',type :'string',require:true},
+                {arg:'score',type :'string',require:true},
                 {arg:'indexQuestion',type :'string',require:true}
             ],
             returns: [
