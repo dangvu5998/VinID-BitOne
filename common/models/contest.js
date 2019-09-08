@@ -57,7 +57,7 @@ module.exports = function(Contest) {
             "metadata": {
               "app_name": "Contest",
               "app_id": 123456,
-              "title": "BIT",
+              "title": "BIT Contest",
               "submit_button": {
                 "label": "Go to contest",
                 "background_color": "#6666ff", 
