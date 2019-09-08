@@ -32,6 +32,9 @@ module.exports = function(User) {
                 "style": "heading",
                 "content": "Are you ready?"
             },
+            {
+              "type": "input"
+            }
           ]
         }
       };
