@@ -63,7 +63,7 @@ module.exports = function (Contest) {
 					"label": "Go to contest",
 					"background_color": "#6666ff",
 					"cta": "request",
-					"url": ""
+					"url": "http://bitone.herokuapp.com/api-information/"+req.body.userId+"/"+contestId.toString()
 				},
 				"elements": [
 					{
