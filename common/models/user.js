@@ -37,7 +37,7 @@ module.exports = function(User) {
                 "content": "Are you ready?"
             },
             {
-              "type": "input"
+              "type": "input",
             }
           ]
         }
