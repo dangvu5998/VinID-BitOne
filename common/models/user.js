@@ -51,8 +51,7 @@ module.exports = function(User) {
             http: {path: '/createUser', verb:  'post'},
             accepts: [
                 {arg: 'req', type: 'object', 'http': {source: 'req'}},
-                {arg:'userId',type:'string',require:true},
-                {arg:'contestId',type :'string',require:true}],
+                ],
             returns: [
               {arg: 'data', type:'object'}],
         },
