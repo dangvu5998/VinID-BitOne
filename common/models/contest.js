@@ -95,7 +95,7 @@ module.exports = function (Contest) {
 						"label": "Ok",
 						"background_color": "#6666ff", //Background color of submit button
 						"cta": "request",
-						"url": "http://bitone.herokuapp.com/api-ranking"
+						"url": "http://bitone.herokuapp.com/api-rankingView"
 					},
 					"elements": [
 						{
