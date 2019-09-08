@@ -92,7 +92,7 @@ module.exports = function (app) {
                             "label": "Save",
                             "background_color": "#6666ff",
                             "cta": "request",
-                            "url": "http://bitone.herokuapp.com/createQuestion"
+                            "url": "http://bitone.herokuapp.com/api-addQuestion"
                         },
                         "reset_button": {
                             "label": "Reset",
