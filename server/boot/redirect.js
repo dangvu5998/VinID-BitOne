@@ -1,7 +1,7 @@
 
 module.exports = function (app) {
     app.post('/api-init-selection', function (req, res) {
-        selection = req.body.value
+        selection = req.body.selection
         console.log(req)
         if (selection == 1){
             return res.json({
