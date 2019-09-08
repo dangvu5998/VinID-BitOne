@@ -239,7 +239,7 @@ module.exports = function (Contest) {
 
 	Contest.remoteMethod(
 		'getFirstQuestion', {
-			http: { path: '/:contestId/firstQuestion', verb: 'get' },
+			http: { path: '/:contestId/firstQuestion', verb: 'post' },
 			accepts: [
 				{ arg: 'req', type: 'object', 'http': { source: 'req' } },
 				{ arg: 'contestId', type: 'string', require: true }
