@@ -212,7 +212,7 @@ module.exports = function(Question) {
         
         question.options = temp
         vjson.addElement(questionForm, question)
-        questionForm.data.metadata.submit_button.url = "https://bitone.herokuapp.com/api-init"
+        questionForm.data.metadata.submit_button.url = "https://bitone.herokuapp.com/api-init-selection -H 'selection:1'"
         questionForm.data.metadata.submit_button.label = "Trở lại"
 
         return questionForm
