@@ -23,6 +23,7 @@
     "loopback-connector-mongodb": "^4.2.0",
     "loopback-context": "^3.4.0",
     "path": "^0.12.7",
+    "qrcode": "^1.4.1",
     "serve-favicon": "^2.0.1",
     "strong-error-handler": "^3.0.0"
   },

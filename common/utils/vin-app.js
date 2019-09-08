@@ -21,6 +21,7 @@ module.exports = {
                     "label": "Gửi thông tin",
                     "background_color": "#6666ff",
                     "cta": "request",
+                    "url": ""
                 },
                 "reset_button": {
                     "label": "Xoá bản ghi",

@@ -27,12 +27,12 @@ function questionToResponse(question, submitURL){
     }
     answerElement.options = temp
     elements.push(answerElement)
-    let nextQuestionElement
-    nextQuestionElement.type = "checkbox"
-    nextQuestionElement.display_type = "inline"
-    nextQuestionElement.name = "Submit"
-    nextQuestionElement.required = "true"
-    elements.push(nextQuestionElement)
+    // let nextQuestionElement
+    // nextQuestionElement.type = "checkbox"
+    // nextQuestionElement.display_type = "inline"
+    // nextQuestionElement.name = "Submit"
+    // nextQuestionElement.required = "true"
+    // elements.push(nextQuestionElement)
     return elements
 }
 
