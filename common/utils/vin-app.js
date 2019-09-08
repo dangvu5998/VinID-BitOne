@@ -43,6 +43,9 @@ module.exports = {
             element = elements[i]
             this.addElement(json, element);
         }
-    }
+    },
 
+    updateURL: function(json, newURL){
+        json.metadata.submit_button.url = newURL
+    }
 }
