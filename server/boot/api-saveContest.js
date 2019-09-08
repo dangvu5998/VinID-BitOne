@@ -27,6 +27,9 @@ module.exports = function(app){
                 "ownerId": ownerId,
             }
         )
-        return contestModel
+
+        contestUser = app.models.UserContest
+        return contestUser.createQRcode("https://qr.id.vin/hook?url=http://bitone.herokuapp.com/api-start&method=POST?contestId=123")
+            
     });
 }
