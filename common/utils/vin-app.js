@@ -14,26 +14,28 @@ function appFormTemplate(additionAttr) {
 module.exports = {
     createJson: function() {
         return {
-            "metadata": {
-                "app_name": "bitOne",
-                "title": "bitOne",
-                "submit_button": {
-                    "label": "Gửi thông tin",
-                    "background_color": "#6666ff",
-                    "cta": "request",
-                    "url": ""
-                },
-                "reset_button": {
-                    "label": "Xoá bản ghi",
-                    "background_color": "#669999"
-                },
-                "elements": []
+            "data": {
+                "metadata": {
+                    "app_name": "bitOne",
+                    "title": "bitOne",
+                    "submit_button": {
+                        "label": "Gửi thông tin",
+                        "background_color": "#6666ff",
+                        "cta": "request",
+                        "url": ""
+                    },
+                    "reset_button": {
+                        "label": "Xoá bản ghi",
+                        "background_color": "#669999"
+                    },
+                    "elements": []
+                }
             }
         }
     },
     
     addElement: function(json, element) {
-        json.metadata.elements.push(element);
+        json.data.metadata.elements.push(element);
     },
 
     addElements: function(json, elements) {
