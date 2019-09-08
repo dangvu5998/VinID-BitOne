@@ -46,6 +46,6 @@ module.exports = {
     },
 
     updateURL: function(json, newURL){
-        json.metadata.submit_button.url = newURL
+        json.data.metadata.submit_button.url = newURL
     }
 }
