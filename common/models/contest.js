@@ -51,7 +51,7 @@ module.exports = function(Contest) {
     Contest.getDescription = async (req) =>{
         let [err, contest] = await to(Contest.findOne({where: {contestId: req.header.contestId}}));
         console.log(req.userId);
-        console.log(req.header.contestId)
+        console.log(req)
         return {
             "metadata": {
               "app_name": "Contest",
