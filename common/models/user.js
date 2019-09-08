@@ -5,6 +5,7 @@ module.exports = function(User) {
     User.createUser = async function(req) {
       let userId = req.user_id
       console.log(userId)
+      console.log("HAHAH")
       let contestId = "1"
       let [err, user] = await to(User.findOne({where: {userId: userId}}))
       
