@@ -7,7 +7,7 @@ module.exports = function (app) {
         answerB = req.body.answerB
         answerC = req.body.answerC
         answerD = req.body.answerD
-        trueanswer = req.body.trueanswer
+        trueAnswer = req.body.trueAnswer
         continueAdd = req.body.continueAdd
 
         // Add question to database
@@ -17,7 +17,7 @@ module.exports = function (app) {
                 "questionId" : "",
                 "content": question,
                 "answerList": [answerA, answerB, answerC, answerD],
-                "trueAnswer": trueanswer,
+                "trueAnswer": trueAnswer,
                 "userId": userId,
             })
 
