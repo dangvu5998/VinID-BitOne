@@ -10,7 +10,7 @@ module.exports = function (app) {
                     	"label": "Next",
                     	"background_color": "#6666ff", 
                         "cta": "request",
-                        "url": "http://bitone.herokuapp.com//api-init-selection"
+                        "url": "http:/bitone.herokuapp.com/api-init-selection"
                     },
                      "reset_button": {
                     	"label": "Reset",
