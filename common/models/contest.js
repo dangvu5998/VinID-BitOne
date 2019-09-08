@@ -184,7 +184,7 @@ module.exports = function (Contest) {
 					"label": "Next questions",
 					"background_color": "#6666ff",
 					"cta": "request",
-					"url": "http://bitzero.herokuapp.com/api/Contests/1/number/" + numberQuestion.toString() + "/right/" + contentQuestion.trueAnswer + "/score/0/nextQuestion/1"
+					"url": "http://bitone.herokuapp.com/api/Contests/1/number/" + numberQuestion.toString() + "/right/" + contentQuestion.trueAnswer + "/score/0/nextQuestion/1"
 				},
 				"elements": [
 					{
