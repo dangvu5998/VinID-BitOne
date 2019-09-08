@@ -142,14 +142,11 @@ module.exports = function (app) {
                                 "placeholder": ""
                             },
                             {
-                                "type": "input",
-                                "input_type": "radio",
+                                "type": "radio",
                                 "name": "trueAnswer",
                                 "label": "True Answer",
                                 "display_type": "inline",
                                 "required": true,
-                                "name": "selection",
-                                "placeholder": "",
                                 "options": [
                                     {
                                         "label": "A",   //Tên hiển thị
