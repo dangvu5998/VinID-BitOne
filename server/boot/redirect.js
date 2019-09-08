@@ -1,6 +1,6 @@
 
 module.exports = function (app) {
-    app.post('/api-init-selection', function (req, res) {
+    app.post('/api-init-selection', async function (req, res) {
         selection = req.body.selection
         if (selection == 1) {
             return res.json({
@@ -61,7 +61,7 @@ module.exports = function (app) {
                                 "label": "Time Start",
                                 "required": true,
                                 "placeholder": "hh:mm dd:mm:yy"
-                            },
+                            }, 
                             {
                                 "type": "input",
                                 "input_type": "text",
@@ -183,12 +183,12 @@ module.exports = function (app) {
             });
         }
         else {
-            // let question = app.models.Question;
-            // return question.pickQuestion();
-            return res.json({
-                "data": {
-                }
-            });
+            let question = app.models.Question;
+            return res.json(await question.pickQuestion());
+            // return res.json({
+            //     "data": {
+            //     }
+            // });
         };
     });
 }
