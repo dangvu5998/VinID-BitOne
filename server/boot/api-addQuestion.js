@@ -1,87 +1,29 @@
-
+// let app = require('../server');
 module.exports = function (app) {
-    app.post('/api-init-selection', function (req, res) {
-        selection = req.body.selection
-        console.log(req)
-        if (selection == 1) {
-            return res.json({
-                "data": {
-                    "metadata": {
-                        "app_name": "Contest",
-                        "app_id": 123456,
-                        "title": "...",
-                        "submit_button": {
-                            "label": "Save",
-                            "background_color": "#6666ff",
-                            "cta": "request",
-                            "url": "http://bitone.herokuapp.com/createContest"
-                        },
-                        "reset_button": {
-                            "label": "Reset",
-                            "background_color": "#6666ff",
-                            "cta": "request",
-                            "url": ""
-                        },
-                        "elements": [
-                            {
-                                "type": "text",
-                                "style": "heading",
-                                "content": "Select: "
-                            },
-                            {
-                                "type": "input",
-                                "name": "contestName",
-                                "input_type": "text",
-                                "label": "Contest Name",
-                                "required": true,
-                                "placeholder": "Contest Name"
-                            },
-                            {
-                                "type": "input",
-                                "input_type": "text",
-                                "name": "contestDes",
-                                "label": "Contest Description",
-                                "required": false,
-                                "placeholder": "Contest Description"
-                            },
-                            {
-                                "type": "input",
-                                "input_type": "textarea",
-                                "name": "Question",
-                                "label": "Question",
-                                "required": true,
-                                "placeholder": "qs1;qs2;qs3;..."
-                            },
-                            {
-                                "type": "input",
-                                "input_type": "textarea",
-                                "name": "Score",
-                                "label": "Score Submit",
-                                "required": true,
-                                "placeholder": "score_qs1;score_qs2;score_qs3;..."
-                            },
-                            {
-                                "type": "input",
-                                "input_type": "text",
-                                "name": "TimeStart",
-                                "label": "Time Start",
-                                "required": true,
-                                "placeholder": "hh:mm dd:mm:yy"
-                            },
-                            {
-                                "type": "input",
-                                "input_type": "text",
-                                "name": "TimeOut",
-                                "label": "Duration",
-                                "required": true,
-                                "placeholder": "xx (s)"
-                            }
-                        ]
-                    }
-                }
-            });
-        }
-        else if (selection == 2) {
+    app.get('/api-addQuestion', function (req, res) {
+        userId = req.user_id
+        question = req.body.question
+        anwserA = req.body.anwserA
+        anwserB = req.body.anwserB
+        anwserC = req.body.anwserC
+        anwserD = req.body.anwserD
+        trueAnwser = req.body.trueAnwser
+        continueAdd = req.body.continueAdd
+
+        // Add question to database
+        questionModel = app.models.Question
+        questionModel.creat(
+            {
+                "questionId" : "",
+                "content": question,
+                "answerList": [anwserA, anwserB, anwserC, anwserD],
+                "trueAnswer": trueAnswer,
+                "userId": userId,
+            })
+
+
+        // Continue add question or done
+        if (continueAdd == 1) {
             return res.json({
                 "data": {
                     "metadata": {
@@ -100,7 +42,7 @@ module.exports = function (app) {
                             "cta": "request",
                             "url": ""
                         },
-                        "elements": [  
+                        "elements": [
                             {
                                 "type": "input",
                                 "name": "question",
@@ -186,15 +128,59 @@ module.exports = function (app) {
                         ]
                     }
                 }
-            });
+            })
         }
         else {
-            // let question = app.models.Question;
-            // return question.pickQuestion();
             return res.json({
                 "data": {
+                    "metadata": {
+                        "app_name": "Contest",
+                        "app_id": 123456,
+                        "title": "Bit One",
+                        "submit_button": {
+                            "label": "Next",
+                            "background_color": "#6666ff",
+                            "cta": "request",
+                            "url": "http:/bitone.herokuapp.com/api-init-selection"
+                        },
+                        "reset_button": {
+                            "label": "Reset",
+                            "background_color": "#6666ff",
+                            "cta": "request",
+                            "url": ""
+                        },
+                        "elements": [
+                            {
+                                "type": "text",
+                                "style": "heading",
+                                "content": "Select: "
+                            },
+                            {
+                                "label": "",
+                                "type": "radio",
+                                "display_type": "inline",
+                                "required": true,
+                                "name": "selection",
+                                "placeholder": "",
+                                "options": [
+                                    {
+                                        "label": "Tạo Contest mới.",   //Tên hiển thị
+                                        "value": "1"  //Giá trị
+                                    },
+                                    {
+                                        "label": "Thêm câu hỏi mới.",
+                                        "value": "2"
+                                    },
+                                    {
+                                        "label": "Thư viện câu hỏi.",
+                                        "value": "3"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
                 }
-            });
-        };
+            })
+        }
     });
 }
