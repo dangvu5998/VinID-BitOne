@@ -1,6 +1,6 @@
 // let app = require('../server');
 module.exports = function (app) {
-    app.get('/api-addQuestion', function (req, res) {
+    app.post('/api-addQuestion', function (req, res) {
         userId = req.user_id
         question = req.body.question
         anwserA = req.body.anwserA
