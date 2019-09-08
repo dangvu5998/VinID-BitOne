@@ -4,6 +4,7 @@ module.exports = function(User) {
 
     User.createUser = async function(req) {
       let userId = req.user_id
+      let contestId = "1"
       let [err, user] = await to(User.findOne({where: {userId: userId}}))
       console.log(user)
       if (user === null) {
@@ -24,7 +25,7 @@ module.exports = function(User) {
             "label": "Start do contest",
             "background_color": "#6666ff", 
             "cta": "request",
-            "url": ""//"http://bitzero.herokuapp.com/api/Contests/"+contestId+"/firstQuestion"
+            "url": "http://bitzero.herokuapp.com/api/Contests/"+contestId+"/firstQuestion"
           },
           "elements": [
             {
