@@ -251,7 +251,7 @@ module.exports = function (Contest) {
 
 	Contest.remoteMethod(
 		'getNextQuestion', {
-			http: { path: '/:contestId/number/:numberQuestion/right/:trueAnswer/score/:score/nextQuestion/:indexQuestion', verb: 'get' },
+			http: { path: '/:contestId/number/:numberQuestion/right/:trueAnswer/score/:score/nextQuestion/:indexQuestion', verb: 'post' },
 			accepts: [
 				{ arg: 'req', type: 'object', 'http': { source: 'req' } },
 				{ arg: 'contestId', type: 'string', require: true },
