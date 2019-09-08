@@ -141,23 +141,23 @@ module.exports = function (Contest) {
 					},
 					{
 						"label": "Câu trả lời",
-						"type": "radio/checkbox",
-						"display_type": "inline/dialog",
-						"required": true / false,
+						"type": "radio",
+						"display_type": "inline",
+						"required": true,
 						"name": "Answers",
 						"placeholder": "Chọn đáp án ",
 						"options": [{
 							"label": contentQuestion.answerList[0],
-							"value": 0
-						}, {
-							"label": contentQuestion.answerList[1],
 							"value": 1
 						}, {
-							"label": contentQuestion.answerList[2],
+							"label": contentQuestion.answerList[1],
 							"value": 2
 						}, {
-							"label": contentQuestion.answerList[3],
+							"label": contentQuestion.answerList[2],
 							"value": 3
+						}, {
+							"label": contentQuestion.answerList[3],
+							"value": 4
 						}
 						]
 					}
