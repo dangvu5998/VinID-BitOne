@@ -26,33 +26,33 @@ module.exports = function (app) {
                                 "type": "input",
                                 "name": "contestName",
                                 "input_type": "text",
-                                "label": "Contest Name",
+                                "label": "Tên Contest",
                                 "required": true,
-                                "placeholder": "Contest Name"
+                                "placeholder": "..."
                             },
                             {
                                 "type": "input",
                                 "input_type": "textarea",
                                 "name": "contestDes",
-                                "label": "Contest Description",
+                                "label": "Mô ta Contest",
                                 "required": false,
-                                "placeholder": "Contest Description"
+                                "placeholder": "..."
                             },
                             {
                                 "type": "input",
                                 "input_type": "textarea",
                                 "name": "Question",
-                                "label": "Question",
+                                "label": "Các câu hỏi",
                                 "required": true,
-                                "placeholder": "qs1;qs2;qs3;..."
+                                "placeholder": "VD: 1;2;3;..."
                             },
                             {
                                 "type": "input",
                                 "input_type": "textarea",
                                 "name": "Score",
-                                "label": "Score Submit",
+                                "label": "Điểm số cho các câu hỏi",
                                 "required": true,
-                                "placeholder": "score_qs1;score_qs2;score_qs3;..."
+                                "placeholder": "VD: 10;15;20;..."
                             },
                             // {
                             //     "type": "input",
@@ -99,7 +99,7 @@ module.exports = function (app) {
                                 "type": "input",
                                 "name": "question",
                                 "input_type": "textarea",
-                                "label": "Question",
+                                "label": "Câu hỏi",
                                 "required": true,
                                 "placeholder": ""
                             },
@@ -107,7 +107,7 @@ module.exports = function (app) {
                                 "type": "input",
                                 "input_type": "textarea",
                                 "name": "answerA",
-                                "label": "Answer A",
+                                "label": "Đáp án A",
                                 "required": true,
                                 "placeholder": ""
                             },
@@ -115,7 +115,7 @@ module.exports = function (app) {
                                 "type": "input",
                                 "input_type": "textarea",
                                 "name": "answerB",
-                                "label": "Answer B",
+                                "label": "Đáp án B",
                                 "required": true,
                                 "placeholder": ""
                             },
@@ -123,7 +123,7 @@ module.exports = function (app) {
                                 "type": "input",
                                 "input_type": "textarea",
                                 "name": "answerC",
-                                "label": "Answer C",
+                                "label": "Đáp án C",
                                 "required": true,
                                 "placeholder": ""
                             },
@@ -131,14 +131,14 @@ module.exports = function (app) {
                                 "type": "input",
                                 "input_type": "textarea",
                                 "name": "answerD",
-                                "label": "Answer D",
+                                "label": "Đáp án D",
                                 "required": true,
                                 "placeholder": ""
                             },
                             {
                                 "type": "radio",
                                 "name": "trueAnswer",
-                                "label": "True Answer",
+                                "label": "Câu trả lời đúng",
                                 "display_type": "inline",
                                 "required": true,
                                 "options": [
@@ -163,7 +163,7 @@ module.exports = function (app) {
                             {
                                 "type": "radio",
                                 "name": "continueAdd",
-                                "label": "Continue",
+                                "label": "Tiếp theo",
                                 "display_type": "inline",
                                 "required": true,
                                 "options": [

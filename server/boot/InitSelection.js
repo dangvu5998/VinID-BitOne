@@ -5,7 +5,7 @@ module.exports = function (app) {
                 "metadata": {
                     "app_name": "Contest",
                     "app_id": 123456,
-                    "title": "Bit One",
+                    "title": "Bit Contest",
                     "submit_button": {
                         "label": "Next",
                         "background_color": "#6666ff",
@@ -19,11 +19,6 @@ module.exports = function (app) {
                         "url": ""
                     },
                     "elements": [
-                        {
-                            "type": "text",
-                            "style": "heading",
-                            "content": "Select: "
-                        },
                         {
                             "label": "",
                             "type": "radio",

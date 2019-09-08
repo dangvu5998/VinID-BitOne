@@ -101,8 +101,8 @@ module.exports = function (Contest) {
 						{
 							"type": "text",
 							"style": "paragraph",
-							"content": "Chúc mừng bạn đã hoàn thành contest! \n "
-								+ "Điểm của bạn là " + score + "\n" + "Ấn OK để xem ranking"
+							"content": "Chúc mừng bạn đã hoàn thành contest!\n"
+								+ "Điểm của bạn là " + score + "\n" + "Ấn OK để kết thúc"
 						},
 						{
 							"type": "input",
