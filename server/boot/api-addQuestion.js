@@ -12,7 +12,7 @@ module.exports = function (app) {
 
         // Add question to database
         questionModel = app.models.Question
-        questionModel.creat(
+        questionModel.create(
             {
                 "questionId" : "",
                 "content": question,
