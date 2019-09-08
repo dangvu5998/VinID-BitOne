@@ -41,7 +41,7 @@ module.exports = function(User) {
 
     User.remoteMethod(
         'createUser',  {
-            http: {path: '/:userId/:contestId', verb:  'post'},
+            http: {path: '/createUser', verb:  'post'},
             accepts: [
                 {arg: 'req', type: 'object', 'http': {source: 'req'}},
                 {arg:'userId',type:'string',require:true},
