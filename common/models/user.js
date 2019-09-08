@@ -28,7 +28,7 @@ module.exports = function(User) {
             "label": "Start do contest",
             "background_color": "#6666ff", 
             "cta": "request",
-            "url": "http://bitzero.herokuapp.com/api/Contests/1/firstQuestion"
+            "url": "http://bitone.herokuapp.com/api/Contests/1/firstQuestion"
           },
           "elements": [
             {
