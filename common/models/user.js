@@ -2,7 +2,7 @@
 let to = require('await-to-js').to;
 module.exports = function(User) {
 
-    User.createUser = async function(req,userId) {
+    User.createUser = async function(req,userId,contestId) {
       let [err, user] = await to(User.findOne({where: {userId: userId}}))
       console.log(user)
       if (user === null) {
@@ -23,7 +23,7 @@ module.exports = function(User) {
             "label": "Start do contest",
             "background_color": "#6666ff", 
             "cta": "request",
-            "url": ""
+            "url": "http://bitzero.herokuapp.com/api/Contests/"+contestId+"/firstQuestion"
           },
           "elements": [
             {
@@ -40,10 +40,11 @@ module.exports = function(User) {
 
     User.remoteMethod(
         'createUser',  {
-            http: {path: '/:userId', verb:  'post'},
+            http: {path: '/:userId/:contestId', verb:  'post'},
             accepts: [
                 {arg: 'req', type: 'object', 'http': {source: 'req'}},
-                {arg:'userId',type:'string',require:true}],
+                {arg:'userId',type:'string',require:true},
+                {arg:'contestId',type :'string',require:true}],
             returns: [
               {arg: 'data', type:'object'}],
         },
