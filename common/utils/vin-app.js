@@ -2,7 +2,7 @@ function appFormTemplate(additionAttr) {
   let result = {
     data: {
       metadata:{
-        app_name: "Sân chơi trí tuệ",
+        app_name: "Contest",
         app_id: 123456,
         ...additionAttr
       }
@@ -33,7 +33,7 @@ module.exports = {
             }
         }
     },
-    
+
     addElement: function(json, element) {
         json.metadata.elements.push(element);
     },

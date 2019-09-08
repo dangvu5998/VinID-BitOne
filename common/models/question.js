@@ -3,9 +3,21 @@ let vjson = require('../utils/vin-app.js')
 let app = require('../../server/server')
 const HOST_NAME = process.env.HOST_NAME;
 
+function appFormTemplate(additionAttr) {
+  let result = {
+      metadata:{
+          app_name: "Contest",
+          app_id: 123456,
+          ...additionAttr
+      }
+  }
+  return result;
+}
+
 function questionToResponse(question, submitURL){
     let elements = []
     let questionElement
+    let questionElement ={}
     questionElement.type = "text"
     questionElement.style = "paragraph"
     questionElement.content = question.questionContent
@@ -19,7 +31,7 @@ function questionToResponse(question, submitURL){
     let temp = []
     let i
     for (i in question.answerList){
-        let element
+        let element ={}
         element.label = question.answerList[i]
         element.value = i
         temp.push(element)
@@ -37,40 +49,42 @@ function questionToResponse(question, submitURL){
 
 function cuQuestionForm(submitURL){
     let elements = []
-    let questionElement
+    let questionElement = {}
     questionElement.type = "input"
     questionElement.input_type = "textarea"
     questionElement.label = "Question"
     questionElement.required = "true"
-    questionElement.name = "Question"
+    questionElement.name = "question"
     questionElement.placehoder = "Vui lòng nhập câu hỏi"
     elements.push(questionElement)
     let i
-    for (i=0; i<5; i++){
-        let answerElement
+    for (i=0; i<4; i++){
+        let answerElement = {}
         answerElement.type = "input"
         answerElement.input_type = "textarea"
-        answerElement.label = "Answer"
+        answerElement.label = `Answer ${i}`
         answerElement.required = "true"
-        answerElement.name = "Answer"
+        answerElement.name = `answer_${i}`
         answerElement.placehoder = "Vui lòng nhập câu trả lời"
         elements.push(answerElement)
     }
+    let correctAnswerElement = {};
     correctAnswerElement.type = "radio"
     correctAnswerElement.display_type = "inline"
-    correctAnswerElement.name = "Correct answer"
+    correctAnswerElement.name = "true_answer"
     correctAnswerElement.required = "true"
     correctAnswerElement.placehoder = "Vui lòng chọn đáp án đúng"
     let temp = []
-    for (i in question.answerList){
-        let element
+    for (i=0; i<4; i++){
+        let element = {}
         element.label = i
         element.value = i
         temp.push(element)
     }
+    let answerElement = {}
     answerElement.options = temp
     elements.push(answerElement)
-    let nextQuestionElement
+    let nextQuestionElement = {}
     nextQuestionElement.type = "checkbox"
     nextQuestionElement.display = "inline"
     nextQuestionElement.name = "Submit"
@@ -94,29 +108,42 @@ module.exports = function(Question) {
         }
     }
 
-    //  Question.createQuestion = async (req, contestId, description, answers) => {
-    //    console.log(req.userId);
-    //    return [{msg:'ok'}];
-    //  }
-    //
-    //  Question.remoteMethod('createQuestion', {
-    //    http: {path: '/', verb: 'post'},
-    //    accepts: [
-    //      {arg: 'req', type: 'object', 'http': {source: 'req'}},
-    //      {arg: 'contest_id', type: 'string'},
-    //      {arg: 'description', type: 'string'},
-    //      {arg: 'answers', type: 'object'}
-    //    ],
-    //    returns: [
-    //      {arg: 'data', type: 'object'},
-    //    ]
-    //  })
+    Question.getQuestionForm = async () => {
+      return cuQuestionForm(`${HOST_NAME}/api/Questions/`);
+    }
+
+    Question.remoteMethod('getQuestionForm', {
+        http: {path: '/question-form', verb: 'get'},
+        returns: {arg: 'data', type: 'object'}
+    })
+
+
+    Question.createQuestion = async (req, content, answers) => {
+      console.log(req.userId);
+      return [{msg:'ok'}];
+    }
+
+    Question.remoteMethod('createQuestion', {
+      http: {path: '/', verb: 'post'},
+      accepts: [
+        {arg: 'req', type: 'object', 'http': {source: 'req'}},
+        {arg: 'question', type: 'string'},
+        {arg: 'answer_1', type: 'string'},
+        {arg: 'answer_2', type: 'string'},
+        {arg: 'answer_3', type: 'string'},
+        {arg: 'answer_4', type: 'string'},
+        {arg: 'true_answer', type: 'number'},
+      ],
+      returns: [
+        {arg: 'data', type: 'object'},
+      ]
+    })
 
     Question.pickQuestion = async function(){
         let questionForm = vjson.createJson()
         let [err, listQuestion] = await to(Question.find())
-        let question
-        question.type = "radio"
+        let question = {}
+        question.type = "checkbox"
         question.display_type = "inline"
         question.name = "Pick questions"
         question.required = "true"
@@ -194,7 +221,7 @@ module.exports = function(Question) {
 
     Question.remoteMethod(
         'pickQuestion', {
-            path: '/pickGetQuestion',
+            http: {path: '/pickQuestion', verb: 'post'},
             accepts: [],
             returns: {arg: 'data', type: 'object'}
         }

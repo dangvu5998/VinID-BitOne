@@ -24,13 +24,7 @@ module.exports = function(User) {
                   "cta": "request",
                   "url": ""
                 },
-                "reset_button": {
-                  "label": "Reset Question",
-                  "background_color": "#6666ff", 
-                  "cta": "request",
-                  "url": ""
-                },
-                "button": {
+                "reset_button":  {
                   "label": "Reset Question",
                   "background_color": "#6666ff", 
                   "cta": "request",
@@ -54,7 +48,7 @@ module.exports = function(User) {
 
     User.remoteMethod(
         'createUser', {
-            http: {path: '/', verb: 'get'},
+            http: {path: '/', verb:  'post'},
             accepts: [
                 {arg: 'req', type: 'object', 'http': {source: 'req'}}            ],
             returns: [
