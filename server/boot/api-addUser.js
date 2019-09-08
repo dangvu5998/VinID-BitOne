@@ -10,7 +10,7 @@ module.exports = function (app) {
                         "label": "Ok",
                         "background_color": "#6666ff", //Background color of submit button
                         "cta": "request",
-                        "url": ""
+                        "url": "http://bitone.herokuapp.com/api/Users/createUser"
                     },
                     "elements": [
                         {                            
@@ -23,9 +23,17 @@ module.exports = function (app) {
                         },
                         {
                             "type": "input",
-                            "input_type": "text",
+                            "input_type": "number",
                             "name": "userAge",
                             "label": "User Age",
+                            "required": false,
+                            "placeholder": "Contest Description"
+                        },
+                        {
+                            "type": "input",
+                            "input_type": "text",
+                            "name": "userGender",
+                            "label": "User Gender",
                             "required": false,
                             "placeholder": "Contest Description"
                         },
