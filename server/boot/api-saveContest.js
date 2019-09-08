@@ -1,5 +1,5 @@
 module.exports = function(app){
-    app.post('/api-saveContest', function(req, res){
+    app.post('/api-saveContest', async function(req, res){
         contestName = req.body.contestName
         contesDes = req.body.contesDes
         questionList = req.body.Question.split(';')
@@ -11,7 +11,7 @@ module.exports = function(app){
         contestModel = app.models.Contest
         let time = timeStart.split(' ')[0].split(':')
         let date = timeStart.split(' ')[1].split(':')
-        console.log(date)
+        //console.log(date)
         timeStart = new Date(date[2], date[1], date[0], time[0], time[1], 0, 0)
         timeOut = new Date(0,0,0,0,0,timeOut,0)
 
@@ -29,8 +29,8 @@ module.exports = function(app){
         )
 
         contestUser = app.models.UserContest
-        kk = contestUser.createQRcode("https://qr.id.vin/hook?url=http://bitone.herokuapp.com/api-start&method=POST?contestId=123")
-        console.log(kk)
-        return kk
+        formQR = await contestUser.createQRcode("https://qr.id.vin/hook?url=http://bitone.herokuapp.com/api-start&method=POST?contestId=123")
+        //console.log(formQR)
+        return res.json(formQR)
     });
 }

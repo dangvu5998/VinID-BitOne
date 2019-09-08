@@ -1,28 +1,26 @@
 'use strict';
 
 const QRCode = require('qrcode')
-const generateQR = async text => {
-    try {
-      console.log(await QRCode.toDataURL(text))
-    } catch (err) {
-      console.error(err)
-    }
-  }
 
 let vjson = require('../utils/vin-app.js')
 let app = require('../../server/server')
 let to = require('await-to-js').to
 
 module.exports = function(UserContest) {
-    UserContest.createQRcode = async function(message){
+    UserContest.createQRcode = function(message){
         let QRForm = vjson.createJson()
-        let qrCodesrc = generateQR(message).toString()
-        let element = {}
-        element.type = "web"
-        let temp = "<html><body><img src =\"" + qrCodesrc + "\"></body></html>"
-        element.content = temp
-        vjson.addElement(QRForm, element)
-        return QRForm
+        return QRCode.toDataURL(message).then ((x)=>{
+          //console.log(x)
+          let element = {}
+          element.type = "web"
+          let temp = "<html><body><img src =\"" + x + "\"></body></html>"
+          element.content = temp
+          //console.log(temp)
+          vjson.addElement(QRForm, element)
+          return QRForm
+        }, () => {
+          console.log("Can't create QR code!");
+        })
     }
 
     UserContest.remoteMethod('createQRcode', {
